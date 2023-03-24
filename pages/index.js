@@ -6,7 +6,7 @@ import Guitar, { getRenderFingerSpn } from 'react-guitar'
 import { standard } from "react-guitar-tunings";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [chordInput, setAnimalInput] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -17,7 +17,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ chord: chordInput }),
       });
 
       const data = await response.json();
@@ -46,13 +46,13 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>Have chatGPT show you any guitar chord!</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
+            name="chord"
+            placeholder="Enter a chord like: G, C7, Fmaj7, etc..."
+            value={chordInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
           <input type="submit" value="Generate names" />
