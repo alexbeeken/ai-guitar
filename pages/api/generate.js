@@ -48,15 +48,10 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+function generatePrompt(chord) {
+  return `Can you suggest a guitar chord?
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+G chord is [3, 2, 0, 0, 0, 3]
+C7 chord is [0, 3, 2, 3, 1, 0]
+${chord} is`;
 }

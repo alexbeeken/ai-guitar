@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+import React from 'react'
+import Guitar, { getRenderFingerSpn } from 'react-guitar'
+import { standard } from "react-guitar-tunings";
 
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
@@ -22,7 +25,10 @@ export default function Home() {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
 
-      setResult(data.result);
+      const noSpaces = data.result.replace(/\s+/g, "").replace(/\[/g, "").replace(/\]/g, "");
+      const frets = noSpaces.split(',').map(num => parseInt(num, 10))
+
+      setResult(frets);
       setAnimalInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
@@ -51,7 +57,12 @@ export default function Home() {
           />
           <input type="submit" value="Generate names" />
         </form>
-        <div className={styles.result}>{result}</div>
+        <div className={styles.result}>
+          <Guitar
+            renderFinger={getRenderFingerSpn(standard)}
+            strings={result}
+          />
+        </div>
       </main>
     </div>
   );
