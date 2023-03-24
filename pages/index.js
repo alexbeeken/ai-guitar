@@ -57,12 +57,10 @@ export default function Home() {
           />
           <input type="submit" value="Generate names" />
         </form>
-        <div className={styles.result}>
           <Guitar
             renderFinger={getRenderFingerSpn(standard)}
             strings={result}
           />
-        </div>
       </main>
     </div>
   );
