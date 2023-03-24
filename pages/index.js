@@ -55,7 +55,7 @@ export default function Home() {
             value={chordInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Generate chart" />
         </form>
         <div className={styles.guitar}>
           <Guitar
