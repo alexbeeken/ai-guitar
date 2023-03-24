@@ -53,5 +53,8 @@ function generatePrompt(chord) {
 
 G chord is [3, 2, 0, 0, 0, 3]
 C7 chord is [0, 3, 2, 3, 1, 0]
+Fmaj7 chord is [1, 3, 3, 2, 1, 0]
+D chord is [2, 0, 0, 2, 3, 2]
+E chord is [0, 2, 2, 1, 0, 0]
 ${chord} is`;
 }
